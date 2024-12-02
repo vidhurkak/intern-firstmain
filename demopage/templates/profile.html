@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skin Disease Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .upload-box {
+            margin-bottom: 20px;
+        }
+        input[type="file"] {
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .image-preview {
+            margin-top: 20px;
+        }
+        .dimensions {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Skin Disease Finding Web App!!!</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="upload-box">
+                <label for="uploadImage">Image Upload:</label>
+                <input type="file" id="uploadImage" name="uploadImage" accept="image/*" required>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        <hr>
+        <hr>
+        <div>
+            {% if img %}
+                <img src="{{img}}" alt="No Image loaded" height="500px" width="500px">
+            {% endif %}
+        </div>
+        <hr>
+        <div>
+            <h2>Skin Disease Result:</h2>
+            {% if obj1 %}
+            <h3>{{ obj1 }}</h3>
+            {% endif %}
+        </div>
+       
+    </body>
+    </html>
+    </div>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <title>Skin Disease Diagnosis</title>
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/dot-matrix');
+        body {
+            font-family: 'Dot Matrix', inter;
+            background-color: #00081E;
+            padding: 60px;
+            background-size: cover;
+        }
+        .landing-page-heading-1{
+            color: rgb(255, 0, 0);
+            font-size: 60px;
+            margin-top: 50px;
+            font-weight: 700;
+            margin-bottom:-50px;
+            }
+        .landing-page-heading-2{
+            color: #FFFFFF;
+            font-size: 60px;
+            margin-top: 50px;
+            font-weight: 700;
+            margin-bottom:-50px;
+        }
+        .main-text{
+            text-align: start;
+        }
+        .img-size{
+            width: 100%;
+            align-items: center;
+        }
+        .landing-para{
+            font-family: inter;
+            color: #FFFFFF;
+            font-size: 20px;
+            margin-top: 2%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="d-flex flex-row">
+        <!-- Right side text in the home page-->
+           <div class="col-xl-6 col-lg-6 " style="margin-right:5%; margin-top: 5%;">
+            <!--the text area-->
+            <div class="main-text">
+               <h1 class="landing-page-heading-1">Skin Diagnosis</h1> 
+               <h1 class="landing-page-heading-2">Revolutionized by</h1>
+               <h1 class="landing-page-heading-2" style="margin-bottom: 0px; font-size: 55px;">Imaging Technology</h1>
+               <p class="landing-para">Advanced image processing is transforming dermatology, enhancing the accuracy and speed of skin disease diagnosis for better patient outcomes</p>
+            </div>
+            <!--the buttons area-->
+            <div class="d-flex flex-row">
+               <button style="border-color: white; border-style: solid; font-weight: 600;  color: white; background-color: #00081E; font-family: inter;padding: 10px;font-size: 23px;padding-left: 60px;padding-right: 60px; border-radius: 15px; margin:10px; margin-left: -0px;" onclick="window.location.href='/login'">Login</button>
+               <button style="border-color: rgb(255, 255, 255); font-weight: 600; border-style: solid; color: rgb(0, 0, 0); background-color: #ffffff; font-family: inter;padding: 10px;font-size: 23px;padding-left: 60px;padding-right: 60px; border-radius: 15px; margin:10px;" onclick="window.location.href='/register'">Register</button>
+            </div>
+           </div>
+         <!-- left side gif in the home page-->
+           <div class="col-xl-6 col-lg-6" style="align-items: center; margin-top: 13%; margin-right:-15%;" >
+            <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdW5sZWlrOTM3aGd2eDk4bmRjbDB4a2lkZmlxdW4wYmNtYnJmeXlybSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/dVuyBgq2z5gVBkFtDc/giphy.webp" alt="" class="img-size">
+           </div>
+    </div>
+</div>
+
+<script src="home.js"></script>
+</body>
+</html>

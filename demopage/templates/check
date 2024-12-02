@@ -1,0 +1,9 @@
+<div>
+    <h1>Welome to login page!!!</h1> {{ msg }}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button>Login</button>
+    </form>
+</div>
+<a href="/" id="back">Back</a>
