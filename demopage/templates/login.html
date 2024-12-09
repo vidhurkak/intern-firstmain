@@ -7,6 +7,16 @@
     <style>
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+        
+        .alert {
+            color: #FF0000; /* Red color for error messages */
+            background-color: rgba(255, 0, 0, 0.1); /* Light red background */
+            border: 1px solid #FF0000; /* Red border */
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
 
         body{
             background-color: #00081E;
@@ -144,41 +154,24 @@ text-align: center;
                 <label class="labe" for="username">Username</label>
                 <div class="inboxx">
                 <input class="inboxx" type="text" id="username" name="username">
-                {% if form.username.errors %}
-                    <div class="error-messages">
-                        {% for error in form.username.errors %}
-                            <p class="error">{{ error }}</p>
-                        {% endfor %}
-                    </div>
-                {% endif %}
-                 </div>
+                <div id="user-message" class="error hidden">username is required.</div> <!-- Message element -->
+                </div>
                 
                 <!--password label-->
                  <label class="labe" for="password" style="text-align: start;">Password</label>
                  <div class="inboxx">
                 <input class="inboxx" type="password" id="password" name="password">
-                {% if form.password.errors %}
-                    <div class="error-messages">
-                        {% for error in form.password.errors %}
-                            <p class="error">{{ error }}</p>
-                        {% endfor %}
-                    </div>
-                {% endif %}
+                
+                    <div id="password-message" class="error hidden">Password is required.</div> <!-- Message element -->
                 </div>
 
-                {% if form.non_field_errors %}
-                    <div class="error-messages">
-                        {% for error in form.non_field_errors %}
-                            <p class="error">{{ error }}</p>
-                        {% endfor %}
-                    </div>
-                {% endif %}
+             
                 <!--Signin button-->
                 <div class="inboxx" style="margin-top: 20px;">
                     <button  type="submit">Login</button>
                 </div>
                 <!--don't have account text-->
-                <p class="speacial-signup-text">Don't have an account yet?<a href="/register"
+                <p class="speacial-signup-text">'Don't have an account yet?'<a href="/register"
                 style="color: #BCFF40;
                     font-family: Inter;
                     font-size: 20px;
@@ -187,6 +180,9 @@ text-align: center;
                     line-height: normal;
                     margin-left: 6px;">Sign Up</a>
                 </p>
+                {% if msg %}
+                    <div class="alert">{{ msg }}</div>
+                {% endif %}
         </form>
     </div>
 </body>

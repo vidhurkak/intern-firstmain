@@ -33,6 +33,10 @@ def login(request):
                 msg = 'Invalid Username/Password'
 
                 return render(request,'login.html',{'form':form,'msg':msg})
+            
+        else:
+            msg = 'Invalid form submission'
+            return render(request, 'login.html', {'form': form, 'msg': msg})    
     else:
         form = AuthenticationForm()
         #used to create a basic login page with username and password
