@@ -16,24 +16,27 @@ def home(request):
 def login(request):
     if(request.user.is_authenticated):
         return render(request,'login.html')
+    
     if(request.method == "POST"):
-        un = request.POST['username']
-        pw = request.POST['password']
-        #authenticate() is used to check for the values present in the database or not
-        #if the values are matched, then it will return the username
-        #if the values are not matched, then it will return as 'None'
-        # use authenticate(), need to import it from auth package
-        user = authenticate(request,username=un,password=pw)
-        if(user is not None):
-            return redirect('/profile')
-        else:
-            msg = 'Invalid Username/Password'
-            form = AuthenticationForm(request.POST)
-            return render(request,'login.html',{'form':form,'msg':msg})
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            un = form.cleaned_data.get('username')
+            pw = form.cleaned_data.get('password')
+            #authenticate() is used to check for the values present in the database or not
+            #if the values are matched, then it will return the username
+            #if the values are not matched, then it will return as 'None'
+            # use authenticate(), need to import it from auth package
+            user = authenticate(request,username=un,password=pw)
+            if(user is not None):
+                return redirect('/profile')
+            else:
+                msg = 'Invalid Username/Password'
+
+                return render(request,'login.html',{'form':form,'msg':msg})
     else:
         form = AuthenticationForm()
         #used to create a basic login page with username and password
-        return render(request,'login.html',{'form':form})
+    return render(request,'login.html',{'form':form})
  
 def register(request):
     if request.user.is_authenticated:

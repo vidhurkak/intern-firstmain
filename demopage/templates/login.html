@@ -137,19 +137,42 @@ text-align: center;
     <div class="container">
         <p class="welcome-text">Welcome back</p>
         <p class="details-text">Please enter your details to sign in</p>
+        
         <form method="post">
             {% csrf_token %}
             
                 <label class="labe" for="username">Username</label>
                 <div class="inboxx">
                 <input class="inboxx" type="text" id="username" name="username">
+                {% if form.username.errors %}
+                    <div class="error-messages">
+                        {% for error in form.username.errors %}
+                            <p class="error">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
                  </div>
                 
                 <!--password label-->
                  <label class="labe" for="password" style="text-align: start;">Password</label>
                  <div class="inboxx">
                 <input class="inboxx" type="password" id="password" name="password">
+                {% if form.password.errors %}
+                    <div class="error-messages">
+                        {% for error in form.password.errors %}
+                            <p class="error">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
                 </div>
+
+                {% if form.non_field_errors %}
+                    <div class="error-messages">
+                        {% for error in form.non_field_errors %}
+                            <p class="error">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
                 <!--Signin button-->
                 <div class="inboxx" style="margin-top: 20px;">
                     <button  type="submit">Login</button>
